@@ -1,6 +1,6 @@
-FROM public.ecr.aws/amazoncorretto/amazoncorretto:17-alpine-jdk
-RUN apk add curl
+# Use standard Amazon Corretto 17 image from public ECR
+FROM public.ecr.aws/amazoncorretto/amazoncorretto:17
+RUN apk add --no-cache curl
 VOLUME /tmp
-EXPOSE 8080
-ADD target/spring-deploy-aws.jar spring-deploy-aws.jar
-ENTRYPOINT ["java","-jar","/spring-deploy-aws.jar"]
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
