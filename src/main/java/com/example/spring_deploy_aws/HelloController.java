@@ -10,6 +10,6 @@ public class HelloController {
 
     @GetMapping
     public String home() {
-        return "Hello, Spring Deploy AWS is working!";
+        return "Hello!!!!, Spring Deploy AWS is working!";
     }
 }
